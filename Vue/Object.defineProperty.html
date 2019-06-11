@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object.defineProperty 理解</title>
+</head>
+<body>
+    <script>
+        let obj = {};
+        let song = '七里香';
+        obj.singer = 'JayZhou';
+        Object.defineProperty(obj, 'music', {
+            configurable: true, // 可以配置对象, 为true的时候才可以删除属性
+            enumerable: false, // 是否可枚举
+            get () {
+                return song;
+            },
+            set (val) {
+                song = val;
+            }
+        });
+
+        console.log(obj.music); // {singer: '周杰伦', music: '七里香'}
+        console.log('song', song);
+
+        obj.music = '听妈妈的话';
+        console.log(obj.music);
+        console.log('song', song);
+
+        delete obj.music
+        console.log(obj);
+
+        for(var i in obj) {
+            console.log(i); // 只有singer 因为music是不可枚举的
+        }
+    </script>
+</body>
+</html>

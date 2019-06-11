@@ -1,3 +1,4 @@
+// AJAX函数封装；
 function Ajax(options) {
     var xhr = null;
     var params = formsParams(options.data);
@@ -5,7 +6,7 @@ function Ajax(options) {
     if(window.XMLHttpRequest) {
         xhr = new XMLHttpRequest();
     } else {
-        // 兼容IE
+        // 兼容IE6 
         xhr = new ActiveXObject("Microsoft.XMLHTTP");
     }
     // 第二步： 连接，执行open和send方法；

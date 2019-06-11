@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dpr-demo</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            background:  black;
+        }
+        [data-dpr='2'] div {
+            background: red;
+        }
+        [data-dpr='3'] div {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="drp-2">
+
+    </div>
+    <div class="drp-3">
+
+    </div>
+    <script>
+        document.documentElement.setAttribute('data-dpr', window.devicePixelRatio);
+    </script>
+</body>
+
+</html>
